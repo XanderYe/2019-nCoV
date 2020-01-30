@@ -35,35 +35,6 @@
       position: relative;
       width: 40%;
       overflow: hidden;
-
-      .leftTime {
-        position: absolute;
-        left: 1.4rem;
-        font-weight: 500;
-        font-size: 0.8rem;
-        text-align: right;
-        vertical-align: top;
-      }
-      .leftDot {
-        position: absolute;
-        top: 0;
-        left: 6.2rem;
-        z-index: 2;
-        display: inline-block;
-        width: 0.8rem;
-        height: 0.8rem;
-        background: url("../assets/dot.png");
-        background-size: cover;
-      }
-      .leftLine {
-        position: absolute;
-        top: 0.4rem;
-        left: 6.55rem;
-        display: inline-block;
-        width: 0.1rem;
-        height: 10rem;
-        background: #4169E2;
-      }
     }
 
     .reportRight {
@@ -96,6 +67,68 @@
         text-align: right;
         font-size: 0.2rem;
         color: #999999;
+      }
+    }
+
+    @media (min-width:768px) {
+      .leftTime {
+        position: absolute;
+        left: 1.0rem;
+        font-weight: 500;
+        font-size: 0.8rem;
+        text-align: right;
+        vertical-align: top;
+      }
+      .leftDot {
+        position: absolute;
+        top: 0;
+        left: 5.8rem;
+        z-index: 2;
+        display: inline-block;
+        width: 0.8rem;
+        height: 0.8rem;
+        background: url("../assets/dot.png");
+        background-size: cover;
+      }
+      .leftLine {
+        position: absolute;
+        top: 0.4rem;
+        left: 6.15rem;
+        display: inline-block;
+        width: 0.1rem;
+        height: 12rem;
+        background: #4169E2;
+      }
+    }
+
+    @media (max-width:768px) {
+      .leftTime {
+        position: absolute;
+        left: 1.4rem;
+        font-weight: 500;
+        font-size: 0.8rem;
+        text-align: right;
+        vertical-align: top;
+      }
+      .leftDot {
+        position: absolute;
+        top: 0;
+        left: 6.2rem;
+        z-index: 2;
+        display: inline-block;
+        width: 0.8rem;
+        height: 0.8rem;
+        background: url("../assets/dot.png");
+        background-size: cover;
+      }
+      .leftLine {
+        position: absolute;
+        top: 0.4rem;
+        left: 6.55rem;
+        display: inline-block;
+        width: 0.1rem;
+        height: 10rem;
+        background: #4169E2;
       }
     }
   }
