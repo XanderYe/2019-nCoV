@@ -80,7 +80,7 @@
         color: #333;
         font-weight: 600;
         font-size: 1rem;
-        line-height: 1rem;
+        line-height: 1.3em;
         text-overflow: ellipsis;
         a {
           color: #333;

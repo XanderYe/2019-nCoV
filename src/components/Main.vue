@@ -100,10 +100,7 @@
           echartsData.push(district);
         });
         this.option.series =  [
-          {
-          type: 'scatter',
-          coordinateSystem: 'geo'
-          }, {
+           {
             name: '确诊人数',
             type: 'map',
             geoIndex: 0,
