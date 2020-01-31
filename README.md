@@ -6,6 +6,10 @@
 
 2019年新型冠状病毒感染数据地图，主要用于显示县级区数据
 
+# 初始配置
+
+前往[阿里云GeoJson地图选择器](http://datav.aliyun.com/tools/atlas)下载地图放入static/city下，格式为"行政区划_full.json"
+
 # 部署方法
 
 ## 安装依赖
@@ -66,18 +70,17 @@ district | 否 | string | 地区，用于适配其他市，从访问url中的par
 			{
 				"id": 1,
 				"name": "XX市/区/县",
-				"diagnosed": 0,
-				"point": "经度,纬度"
+				"diagnosed": 0
 			}
 		],
 		"city": {
 			"id": 1,
 			"name": "地级市",
 			"diagnosed": 0,
-			"point": "经度,纬度"
+			"districtNum": 330200
 		}
 	}
 }
 ```
 
-##### 说明：diagnosed为确诊人数，city的point为初始加载中心，diagnosedData中的point为地区名称标签显示的位置
+##### 说明：diagnosed为确诊人数，city的districtNum为行政区划代编号

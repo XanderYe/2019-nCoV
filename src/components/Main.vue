@@ -23,16 +23,13 @@
   import DetailReport from "./DetailReport";
   import axios from "axios";
   import DetailTable from "./DetailTable";
-  import ningbo from "../assets/city/330200.json";
-  import wenzhou from "../assets/city/330300.json";
 
   export default {
     name: "Main",
     components: {
       DetailTable,
       DetailReport,
-      axios,
-      ningbo
+      axios
     },
     data() {
       return {
@@ -91,7 +88,7 @@
       getUrlParam(name) {
         return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null
       },
-      transferToEcharts() {
+      transferToECharts() {
         let echartsData = [];
         this.diagnosedData.forEach(data => {
           let district = {};
@@ -107,29 +104,32 @@
             data: echartsData
           }
         ]
-      }
+      },
+      loadECharts() {
+        let url = "static/city/" + this.city.districtNum + "_full.json";
+        this.$requests.getJson(url).then(res => {
+          let myChart = this.$echarts.init(this.$refs.mapChart);
+          const pinyin = this.city.pinyin;
+          this.$echarts.registerMap(pinyin, res.data);
+          // 设置地图
+          this.option.geo.map = pinyin;
+          myChart.setOption(this.option);
+        })
+      },
     },
     mounted() {
-      let myChart = this.$echarts.init(this.$refs.mapChart);
-      this.$echarts.registerMap("ningbo", ningbo);
-      this.$echarts.registerMap("wenzhou", wenzhou);
-
       let district = this.getUrlParam("district");
       // 请求数据
-      this.$axios.get(interfaceUrl, {
-        params: {
-          district: district
-        }
+      this.$requests.get(interfaceUrl, {
+        district: district
       }).then(res => {
         if (res.data.code === 0) {
           this.city = res.data.data.city;
           this.diagnosedData = res.data.data.diagnosedData;
           this.news = res.data.data.news;
           this.title = this.city.name + "新型冠状病毒肺炎确诊患者分布";
-          this.transferToEcharts();
-          // 设置地图
-          this.option.geo.map = this.city.pinyin;
-          myChart.setOption(this.option);
+          this.transferToECharts();
+          this.loadECharts();
         }
       });
     }
