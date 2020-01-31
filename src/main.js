@@ -6,7 +6,7 @@ import VueRouter from 'vue-router'
 import router from './router/index.js'
 import VueWechatTitle from 'vue-wechat-title'
 import requests from './lib/ajax.js'
-import echarts from './lib/echarts.js'
+import echarts from 'echarts'
 
 Vue.config.productionTip = false
 
