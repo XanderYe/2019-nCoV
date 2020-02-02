@@ -245,7 +245,8 @@
 
           div {
             display: inline-block;
-            width: 49.3%;
+            float: left;
+            width: 50%;
             height: 45px;
             line-height: 45px;
             text-align: center;
