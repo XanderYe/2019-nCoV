@@ -42,7 +42,7 @@ npm run build
 
 ## 请求方式
 
--get
+get
 
 ## 参数
 
